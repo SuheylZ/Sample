@@ -29,6 +29,8 @@ bld/
 msbuild.log
 msbuild.err
 msbuild.wrn
+packages/**/*
+!packages/repositories.config
 
 # Visual Studio 2015
 .vs/
