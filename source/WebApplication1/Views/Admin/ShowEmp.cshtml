@@ -1,0 +1,64 @@
+﻿@model IEnumerable<WebApplication1.Models.Employee>
+
+@{
+    ViewBag.Title = "ShowEmp";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+    <div class="m-5 p-5 " style="background-color:white;">
+
+        <p>
+            @Html.ActionLink("Create New", "CreateEmp", "Admin")
+        </p>
+        <table class="table table-bordered  " >
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmpName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmpAge)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmpUserID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Password)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ConfirmPassword)
+                </th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpAge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpUserID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConfirmPassword)
+            </td>
+            <td>
+                <a class="btn btn-primary" href="@Url.Action("EditEmp", "Admin", new { id = item.EmpId })"> Edit </a>
+</td>
+            <td>
+                <a class="btn btn-danger" href="@Url.Action("DelEmp", "Admin", new { id = item.EmpId })" >Delete  </a>
+            </td>
+        </tr>
+            }
+
+        </table>
+
+
+</div>

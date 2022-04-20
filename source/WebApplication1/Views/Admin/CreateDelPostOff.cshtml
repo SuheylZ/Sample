@@ -1,0 +1,61 @@
+﻿@model WebApplication1.Models.DeliveryPostOffice
+
+@{
+    ViewBag.Title = "CreateDelPostOff";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+    <div class="m-5 p-5 " style="background-color:white;">
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h1>Delivery Post Office</h1>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DeliveryPostOfficeName, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DeliveryPostOfficeName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DeliveryPostOfficeName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PostCode, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.PostCode, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PostCode, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.AccountOffice, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.AccountOffice, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.AccountOffice, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Province, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Province, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Province, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <a href="@Url.Action("ShowDelPostOff","Admin")"> <input type="submit" value="Create" class="btn btn-default" /></a>
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div>

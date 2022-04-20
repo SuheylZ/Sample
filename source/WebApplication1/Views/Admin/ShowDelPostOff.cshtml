@@ -1,0 +1,56 @@
+﻿@model IEnumerable<WebApplication1.Models.DeliveryPostOffice>
+
+@{
+    ViewBag.Title = "ShowDelPostOff";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+    <div class="m-5 p-5 " style="background-color:white;">
+
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DeliveryPostOfficeName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PostCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AccountOffice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Province)
+                </th>
+                <th>Edit</th>
+                <th> Delete</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeliveryPostOfficeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountOffice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Province)
+            </td>
+            <td>
+                <a class="btn btn-primary" href="@Url.Action("EditDelPostOff", "Admin", new { id = item.DeliveryPostOfficeId }) "> Edit </a>
+            </td>
+            <td>
+                <a class="btn btn-danger" href="@Url.Action("DeleteDelPostOff", "Admin", new { id = item.DeliveryPostOfficeId })" >Delete</a>
+            </td>
+        </tr>
+            }
+
+        </table>
+        </div>

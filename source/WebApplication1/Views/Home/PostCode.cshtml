@@ -1,0 +1,99 @@
+﻿@using WebApplication1.Models
+
+@{
+    ViewBag.Title = "PostCode";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- INNER PAGE BANNER -->
+<div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url(~/Homesite/images/banner/PostCode.jpg);">
+    <div class="overlay-main site-bg-sky opacity-08"></div>
+    <div class="container">
+        <div class="wt-bnr-inr-entry">
+            <div class="banner-title-outer">
+                <div class="banner-title-name">
+                    <h2 class="wt-title">Post Code</h2>
+                </div>
+            </div>
+            <!-- BREADCRUMB ROW -->
+
+            <div>
+                <ul class="wt-breadcrumb breadcrumb-style-2">
+                    <li><a href="index.html">Home</a></li>
+                    <li>Post Code</li>
+                </ul>
+            </div>
+
+            <!-- BREADCRUMB ROW END -->
+        </div>
+    </div>
+</div>
+<!-- INNER PAGE BANNER END -->
+<div class="mr-5 ml-4 mt-5 p-5 " style="background-color:white;">
+    <p>
+        Each and every area in Pakistan has been assigned with a post code to minimize mis sending of the mail and speedy sorting. Searchable post code directory of delivery and nondelivery post offices can be found here.
+    </p>
+    <p>Click below given links to download the New Post Code Directory:-</p>
+    <ul>
+        <li>
+            POST CODE DIRECTORY OF DELIVERY POST OFFICES
+        </li>
+        <li>
+            POST CODE DIRECTORY OF Non DELIVERY POST OFFICES
+        </li>
+    </ul>
+</div>
+
+<div class="mr-5 ml-4 mt-5 p-5 " style="background-color:white;">
+
+   
+    <table class="table  table-striped " id="MyTable">
+        <thead style="background-color : #0000FF;">
+            <tr>
+                <th>DELIVERY POST OFFICES</th>
+                <th>POST CODE</th>
+                <th>ACCOUNT OFFICE</th>
+                <th>PROVINCE</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.Delivery)
+            {
+                <tr>
+                    <td>@item.DeliveryPostOfficeName</td>
+                    <td>@item.PostCode</td>
+                    <td>@item.AccountOffice</td>
+                    <td>@item.Province</td>
+                </tr>
+            }
+        </tbody>
+
+
+    </table>
+    </div>
+<div class="mr-5 ml-4  p-5 " style="background-color:white;">
+    <table class="table table-bordered table-striped" id="MyTable2">
+        <thead>
+            <tr>
+                <th>NON DELIVERY POST OFFICES</th>
+                <th>POST CODE</th>
+                <th>ACCOUNT OFFICE</th>
+                <th>PROVINCE</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.NonDelivery)
+            {
+                <tr>
+                    <td>@item.NonDeliveryPostOfficeName</td>
+                    <td>@item.PostCode</td>
+                    <td>@item.AccountOffice</td>
+                    <td>@item.Province</td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+
+</div>
